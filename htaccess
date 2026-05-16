@@ -1,0 +1,5 @@
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [L,R=301]
+
+RewriteCond %{HTTP_HOST} ^www\.smj-marine\.dk [NC]
+RewriteRule ^(.*)$ https://smj-marine.dk/$1 [L,R=301]
