@@ -1,0 +1,20 @@
+{
+  "name": "smj-marine-dk",
+  "version": "1.0.0",
+  "description": "SMJ Marine - Professional boat service website",
+  "private": true,
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "test": "echo \"No tests specified\""
+  },
+  "keywords": [
+    "marine",
+    "boat-service"
+  ],
+  "author": "SMJ Marine",
+  "license": "ISC",
+  "packageManager": "pnpm@10.33.0",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
