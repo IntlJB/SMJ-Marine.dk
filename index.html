@@ -718,6 +718,28 @@
     text-align: center;
     margin-top: 0.25rem;
   }
+  .bot-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .turnstile-wrap {
+    display: flex;
+    justify-content: center;
+    min-height: 65px;
+    margin: 0.15rem 0 0.25rem;
+  }
+  .turnstile-warning {
+    display: none;
+    color: var(--text2);
+    font-size: 0.82rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+  .turnstile-warning.show { display: block; }
 
   /* ─── FORMULAR FEEDBACK (NY) ──────────────────── */
   .form-success {
@@ -1140,7 +1162,7 @@
     <p>Vi vender tilbage inden for 24 timer. Du er også velkommen til at ringe direkte på +45 50 65 49 00.</p>
   </div>
 
-  <div class="contact-form" id="contactForm">
+  <form class="contact-form" id="contactForm" action="https://formspree.io/f/xkoywlqr" method="POST" novalidate>
     <input type="text" id="f-name" placeholder="Navn">
     <input type="tel" id="f-phone" placeholder="Telefon">
     <input type="email" id="f-email" placeholder="Email">
@@ -1154,8 +1176,16 @@
     </select>
     <input type="text" id="f-motor" placeholder="Evt. motortype eller serienummer (valgfrit)">
     <textarea id="f-message" placeholder="Beskriv din opgave"></textarea>
-    <button type="button" id="submitBtn" class="btn-primary">Få et tilbud</button>
-  </div>
+    <div class="bot-field" aria-hidden="true">
+      <label for="f-gotcha">Lad dette felt være tomt</label>
+      <input type="text" id="f-gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+    </div>
+    <div class="turnstile-wrap">
+      <div id="turnstileWidget"></div>
+    </div>
+    <div class="turnstile-warning" id="turnstileWarning">Botbeskyttelsen kunne ikke indlæses. Prøv at genindlæse siden.</div>
+    <button type="submit" id="submitBtn" class="btn-primary">Få et tilbud</button>
+  </form>
 
   <div class="cta-contact">
     <div class="cta-contact-item">
@@ -1185,6 +1215,16 @@
 </footer>
 
 <script>
+  const TURNSTILE_TEST_SITE_KEY = '1x00000000000000000000AA';
+  const TURNSTILE_PRODUCTION_SITE_KEY = '0x4AAAAAADaAdFafk1aLoDul';
+
+  function getTurnstileSiteKey() {
+    const localHosts = ['localhost', '127.0.0.1', '0.0.0.0'];
+    return localHosts.includes(window.location.hostname)
+      ? TURNSTILE_TEST_SITE_KEY
+      : TURNSTILE_PRODUCTION_SITE_KEY;
+  }
+
   // ─── SMOOTH SCROLL ─────────────────────────────
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener("click", function(e) {
@@ -1224,18 +1264,61 @@
   const formDiv    = document.getElementById('contactForm');
   const formSuccess = document.getElementById('formSuccess');
   const submitBtn  = document.getElementById('submitBtn');
-  const FORMSPREE_URL = 'https://formspree.io/f/xkoywlqr';
+  const turnstileWarning = document.getElementById('turnstileWarning');
+  const FORMSPREE_URL = formDiv.getAttribute('action');
+  let turnstileWidgetId = null;
 
-  submitBtn.addEventListener('click', function() {
+  window.onTurnstileLoad = function() {
+    const siteKey = getTurnstileSiteKey();
+
+    if (!siteKey || !window.turnstile) {
+      turnstileWarning.classList.add('show');
+      return;
+    }
+
+    turnstileWidgetId = window.turnstile.render('#turnstileWidget', {
+      sitekey: siteKey,
+      theme: 'dark',
+      action: 'contact',
+      language: 'da',
+      callback: function() {
+        turnstileWarning.classList.remove('show');
+      },
+      'expired-callback': function() {
+        turnstileWarning.textContent = 'Botbeskyttelsen udløb. Prøv at sende formularen igen.';
+        turnstileWarning.classList.add('show');
+      },
+      'error-callback': function() {
+        turnstileWarning.textContent = 'Botbeskyttelsen kunne ikke indlæses. Prøv at genindlæse siden.';
+        turnstileWarning.classList.add('show');
+      }
+    });
+  };
+
+  formDiv.addEventListener('submit', function(e) {
+    e.preventDefault();
     const name    = document.getElementById('f-name').value.trim();
     const phone   = document.getElementById('f-phone').value.trim();
     const email   = document.getElementById('f-email').value.trim();
     const service = document.getElementById('f-service').value;
     const motor   = document.getElementById('f-motor').value.trim();
     const message = document.getElementById('f-message').value.trim();
+    const gotcha  = document.getElementById('f-gotcha').value.trim();
+    const turnstileInput = formDiv.querySelector('input[name="cf-turnstile-response"]');
+    const turnstileToken = turnstileInput ? turnstileInput.value : '';
 
     if (!name || !phone || !email || !service) {
       alert('Udfyld venligst navn, telefon, email og vælg en ydelse.');
+      return;
+    }
+
+    if (gotcha) {
+      return;
+    }
+
+    if (!turnstileToken) {
+      turnstileWarning.textContent = 'Bekræft venligst botbeskyttelsen, før du sender.';
+      turnstileWarning.classList.add('show');
       return;
     }
 
@@ -1248,7 +1331,16 @@
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      body: JSON.stringify({ name, phone, email, service, motor, message })
+      body: JSON.stringify({
+        name,
+        phone,
+        email,
+        service,
+        motor,
+        message,
+        _gotcha: gotcha,
+        'cf-turnstile-response': turnstileToken
+      })
     })
     .then(function(res) {
       if (res.ok) {
@@ -1257,14 +1349,21 @@
       } else {
         submitBtn.textContent = 'Noget gik galt — prøv igen';
         submitBtn.disabled = false;
+        if (window.turnstile && turnstileWidgetId !== null) {
+          window.turnstile.reset(turnstileWidgetId);
+        }
       }
     })
     .catch(function() {
       submitBtn.textContent = 'Noget gik galt — prøv igen';
       submitBtn.disabled = false;
+      if (window.turnstile && turnstileWidgetId !== null) {
+        window.turnstile.reset(turnstileWidgetId);
+      }
     });
   });
 </script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileLoad" async defer></script>
 
 </body>
 </html>
