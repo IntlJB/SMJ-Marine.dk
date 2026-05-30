@@ -795,6 +795,60 @@
     color: var(--brass);
     letter-spacing: 0.06em;
   }
+  .footer-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .footer-links a {
+    color: var(--text2);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--brass); }
+
+  .legal-section {
+    border-top: 1px solid rgba(201,169,110,0.12);
+    background: rgba(7,17,31,0.58);
+    padding: 5rem 4rem;
+  }
+  .legal-inner {
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  .legal-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+  }
+  .legal-section h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1rem;
+    color: var(--brass);
+    margin: 2rem 0 0.7rem;
+  }
+  .legal-section p,
+  .legal-section li {
+    color: var(--text2);
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+  .legal-section ul {
+    padding-left: 1.2rem;
+    margin: 0.7rem 0 0;
+  }
+  .legal-updated {
+    color: var(--muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
 
   /* ─── RESPONSIVE ──────────────────────────────── */
   @media (max-width: 900px) {
@@ -814,7 +868,9 @@
     .about-visual { display: none; }
     .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
     .process-steps::before { display: none; }
-    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    footer { flex-direction: column; gap: 0.9rem; text-align: center; }
+    .footer-links { gap: 0.7rem 1rem; }
+    .legal-section { padding: 4rem 1.5rem; }
     .cta-contact { flex-direction: column; gap: 1.5rem; }
   }
 
@@ -1157,9 +1213,89 @@
   </div>
 </section>
 
+<!-- LEGAL -->
+<section class="legal-section" id="cookiepolitik">
+  <div class="legal-inner">
+    <div class="section-label">Cookiepolitik</div>
+    <h2>Cookiepolitik</h2>
+    <div class="legal-updated">Senest opdateret: 30. maj 2026</div>
+    <p>SMJ Marine bruger kun nødvendige tekniske funktioner, der får hjemmesiden til at virke stabilt og sikkert. Hvis vi senere tilføjer statistik, marketing eller tredjepartscookies, vil denne politik blive opdateret, og du vil få mulighed for at give eller afvise samtykke, hvor loven kræver det.</p>
+
+    <h3>Hvad er cookies?</h3>
+    <p>Cookies er små tekstfiler, som kan gemmes på din enhed, når du besøger en hjemmeside. De kan blandt andet bruges til teknisk drift, sikkerhed, statistik og tilpasning af indhold.</p>
+
+    <h3>Nødvendige funktioner</h3>
+    <p>Hjemmesiden kan bruge tekniske data fra din browser for at indlæse siden, beskytte formularen mod misbrug og sikre, at kontaktformularen fungerer korrekt. Disse funktioner kræver normalt ikke samtykke.</p>
+
+    <h3>Kontaktformular og Formspree</h3>
+    <p>Når du sender kontaktformularen, behandles de oplysninger, du selv indtaster, via Formspree, så SMJ Marine kan modtage din henvendelse. Formspree kan behandle tekniske oplysninger som IP-adresse, tidspunkt og browseroplysninger som led i levering og sikkerhed.</p>
+
+    <h3>Sådan kontrollerer du cookies</h3>
+    <p>Du kan altid slette eller blokere cookies i din browsers indstillinger. Hvis du blokerer alle cookies eller tekniske funktioner, kan enkelte dele af hjemmesiden eller kontaktformularen fungere dårligere.</p>
+  </div>
+</section>
+
+<section class="legal-section" id="gdpr">
+  <div class="legal-inner">
+    <div class="section-label">GDPR</div>
+    <h2>GDPR</h2>
+    <div class="legal-updated">Senest opdateret: 30. maj 2026</div>
+    <p>SMJ Marine behandler personoplysninger ansvarligt og kun i det omfang, det er nødvendigt for at besvare henvendelser, levere marine serviceydelser, udarbejde tilbud og håndtere almindelig kundeadministration.</p>
+
+    <h3>Dataansvarlig</h3>
+    <p>SMJ Marine, CVR: 38469509, er dataansvarlig for de oplysninger, vi modtager direkte fra dig via telefon, e-mail eller kontaktformularen.</p>
+
+    <h3>Hvilke oplysninger behandler vi?</h3>
+    <ul>
+      <li>Navn, telefonnummer og e-mailadresse.</li>
+      <li>Oplysninger om din båd, motor, opgave eller ønskede ydelse.</li>
+      <li>Eventuelle oplysninger, du selv skriver i beskedfeltet.</li>
+      <li>Tekniske oplysninger knyttet til formularafsendelse, når det er nødvendigt for sikkerhed og drift.</li>
+    </ul>
+
+    <h3>Formål og behandlingsgrundlag</h3>
+    <p>Vi behandler oplysninger for at kunne besvare din henvendelse, give tilbud, indgå eller opfylde en aftale samt opbevare relevant dokumentation efter bogførings- og dokumentationskrav. Behandlingen sker typisk på baggrund af aftale, legitim interesse eller retlig forpligtelse.</p>
+
+    <h3>Opbevaring og sletning</h3>
+    <p>Vi gemmer oplysninger, så længe det er nødvendigt for formålet. Henvendelser uden videre kundeforhold slettes eller anonymiseres løbende. Oplysninger, der indgår i fakturaer eller regnskabsmateriale, opbevares efter gældende bogføringsregler.</p>
+
+    <h3>Dine rettigheder</h3>
+    <p>Du kan bede om indsigt, berigtigelse, sletning, begrænsning eller indsigelse mod behandlingen af dine personoplysninger. Du kan kontakte os på info@smj-marine.dk. Du har også ret til at klage til Datatilsynet, hvis du mener, at dine oplysninger ikke behandles korrekt.</p>
+  </div>
+</section>
+
+<section class="legal-section" id="privatlivspolitik">
+  <div class="legal-inner">
+    <div class="section-label">Privatlivspolitik</div>
+    <h2>Privatlivspolitik</h2>
+    <div class="legal-updated">Senest opdateret: 30. maj 2026</div>
+    <p>Denne privatlivspolitik forklarer, hvordan SMJ Marine indsamler, bruger og beskytter personoplysninger, når du besøger hjemmesiden eller kontakter os.</p>
+
+    <h3>Når du kontakter os</h3>
+    <p>Når du ringer, skriver en e-mail eller udfylder kontaktformularen, bruger vi dine oplysninger til at svare på din henvendelse, vurdere opgaven og eventuelt udarbejde et tilbud. Vi beder dig kun om de oplysninger, der er relevante for kontakten og opgaven.</p>
+
+    <h3>Deling med tredjeparter</h3>
+    <p>Vi sælger ikke dine oplysninger. Oplysninger kan deles med nødvendige databehandlere, for eksempel formularleverandør, hostingudbyder, e-mailudbyder eller bogføringssystem, når det er nødvendigt for drift, kommunikation eller administration.</p>
+
+    <h3>Sikkerhed</h3>
+    <p>Vi passer på dine oplysninger med passende tekniske og organisatoriske foranstaltninger. Kun relevante personer og leverandører får adgang til oplysninger, når det er nødvendigt for at løse en opgave eller administrere kundeforholdet.</p>
+
+    <h3>Eksterne links</h3>
+    <p>Hjemmesiden kan indeholde links til eksterne tjenester, eksempelvis telefon, e-mail eller formularleverandør. SMJ Marine er ikke ansvarlig for indhold eller databehandling på eksterne hjemmesider.</p>
+
+    <h3>Kontakt</h3>
+    <p>Har du spørgsmål til privatliv, GDPR eller cookies, kan du kontakte SMJ Marine på info@smj-marine.dk eller +45 50 65 49 00.</p>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-copy">&copy; 2025 SMJ Marine — Tlf: +45 50 65 49 00 &nbsp;|&nbsp; CVR: 38469509</div>
+  <div class="footer-links" aria-label="Juridiske links">
+    <a href="#cookiepolitik">Cookiepolitik</a>
+    <a href="#gdpr">GDPR</a>
+    <a href="#privatlivspolitik">Privatlivspolitik</a>
+  </div>
   <div class="footer-domain">SMJ-Marine.dk</div>
 </footer>
 
@@ -1173,6 +1309,7 @@
         // Luk mobil-menu hvis den er åben
         closeMenu();
         target.scrollIntoView({ behavior: "smooth" });
+        history.pushState(null, "", this.getAttribute("href"));
       }
     });
   });
