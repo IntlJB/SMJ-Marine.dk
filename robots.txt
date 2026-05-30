@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://smj-marine.dk/sitemap.xml
