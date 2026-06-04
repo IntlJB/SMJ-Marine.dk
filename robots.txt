@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://smj-marine.dk/sitemap.xml
+LLMS: https://smj-marine.dk/llms.txt

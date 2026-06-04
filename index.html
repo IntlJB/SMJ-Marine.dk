@@ -94,6 +94,7 @@
             "itemOffered": {
               "@type": "Service",
               "name": "Bådklargøring",
+              "url": "https://smj-marine.dk/baadklargoering.html",
               "description": "Forårsklargøring, søsætning, vinterlægning, teknisk eftersyn og sikkerhedstjek."
             }
           },
@@ -102,6 +103,7 @@
             "itemOffered": {
               "@type": "Service",
               "name": "Motorservice og revision",
+              "url": "https://smj-marine.dk/motorservice.html",
               "description": "Service af indenbords og udenbords bådmotorer, olieskift, filterskift, impeller, kølesystem og fejlfinding."
             }
           },
@@ -110,6 +112,7 @@
             "itemOffered": {
               "@type": "Service",
               "name": "Polering og bundmaling",
+              "url": "https://smj-marine.dk/polering-bundmaling.html",
               "description": "Maskinpolering af gelcoat, bundmaling, teakdækbehandling og vandlinjeoprensning."
             }
           },
@@ -118,6 +121,7 @@
             "itemOffered": {
               "@type": "Service",
               "name": "Svejse- og metalopgaver",
+              "url": "https://smj-marine.dk/svejse-metalopgaver.html",
               "description": "Reparation og specialfremstilling i rustfrit stål og aluminium til både."
             }
           }
@@ -591,6 +595,9 @@
     background: var(--brass);
     flex-shrink: 0;
   }
+
+  .service-link { display: inline-flex; margin-top: 1.25rem; color: var(--brass2); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; }
+  .service-link:hover { color: var(--white); }
 
   /* ─── ABOUT ───────────────────────────────────── */
   .about {
@@ -1120,6 +1127,7 @@
         <li>Teknisk eftersyn & sikkerhedstjek</li>
         <li>Batterier, pumper og el-tjek</li>
       </ul>
+      <a class="service-link" href="/baadklargoering.html">Læs mere om bådklargøring</a>
     </div>
 
     <div class="service-card">
@@ -1137,6 +1145,7 @@
         <li>Bælte & anodeskift</li>
         <li>Fejlfinding & diagnosetjek</li>
       </ul>
+      <a class="service-link" href="/motorservice.html">Læs mere om motorservice</a>
     </div>
 
     <div class="service-card">
@@ -1155,6 +1164,7 @@
         <li>Teakdæk rengøring & behandling</li>
         <li>Vandlinjeoprensning</li>
       </ul>
+      <a class="service-link" href="/polering-bundmaling.html">Læs mere om polering og bundmaling</a>
     </div>
 
     <!-- NY: 4. servicekort — svejsning var allerede i formularen men manglede her -->
@@ -1176,6 +1186,7 @@
         <li>Skrogreperation</li>
         <li>Specialfremstilling</li>
       </ul>
+      <a class="service-link" href="/svejse-metalopgaver.html">Læs mere om svejse- og metalopgaver</a>
     </div>
   </div>
 </section>
