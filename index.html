@@ -1292,10 +1292,11 @@
   </div>
 
   <form class="contact-form" id="contactForm" action="https://formspree.io/f/xkoywlqr" method="POST" novalidate>
-    <input type="text" id="f-name" placeholder="Navn">
-    <input type="tel" id="f-phone" placeholder="Telefon">
-    <input type="email" id="f-email" placeholder="Email">
-    <select id="f-service">
+    <input type="hidden" name="_subject" value="Ny henvendelse fra SMJ Marine">
+    <input type="text" id="f-name" name="name" placeholder="Navn" autocomplete="name" required>
+    <input type="tel" id="f-phone" name="phone" placeholder="Telefon" autocomplete="tel" required>
+    <input type="email" id="f-email" name="email" placeholder="Email" autocomplete="email" required>
+    <select id="f-service" name="service" required>
       <option value="" disabled selected>Hvad skal laves?</option>
       <option>Bådklargøring</option>
       <option>Motorservice</option>
@@ -1303,8 +1304,8 @@
       <option>Svejseopgave</option>
       <option>Andet</option>
     </select>
-    <input type="text" id="f-motor" placeholder="Evt. motortype eller serienummer (valgfrit)">
-    <textarea id="f-message" placeholder="Beskriv din opgave"></textarea>
+    <input type="text" id="f-motor" name="motor" placeholder="Evt. motortype eller serienummer (valgfrit)">
+    <textarea id="f-message" name="message" placeholder="Beskriv din opgave"></textarea>
     <div class="bot-field" aria-hidden="true">
       <label for="f-gotcha">Lad dette felt være tomt</label>
       <input type="text" id="f-gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
