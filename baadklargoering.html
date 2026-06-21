@@ -259,6 +259,13 @@
     transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--brass); }
+  .services-dropdown { position: relative; }
+  .services-toggle { border: 0; background: none; color: var(--text2); font: inherit; font-size: 0.875rem; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; }
+  .services-toggle:hover, .services-dropdown.open .services-toggle { color: var(--brass); }
+  .services-dropdown-menu { display: none; position: absolute; top: calc(100% + 1rem); left: 50%; min-width: 250px; padding: 0.6rem; margin: 0; transform: translateX(-50%); list-style: none; background: rgba(11,26,44,0.98); border: 1px solid rgba(201,169,110,0.3); box-shadow: 0 18px 45px rgba(0,0,0,0.3); }
+  .services-dropdown:hover .services-dropdown-menu, .services-dropdown.open .services-dropdown-menu { display: block; }
+  .services-dropdown-menu a { display: block; padding: 0.75rem 0.9rem; text-transform: none; }
+  .services-dropdown-menu a:hover { background: rgba(201,169,110,0.1); transform: translateX(4px); }
 
   .nav-cta {
     background: transparent;
@@ -320,6 +327,14 @@
     transition: color 0.2s;
   }
   .mobile-menu a:hover { color: var(--brass); }
+  .mobile-services { text-align: center; }
+  .mobile-services-toggle { border: 0; background: none; color: var(--cream); font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 600; cursor: pointer; }
+  .mobile-services-toggle span { display: inline-block; margin-left: 0.35rem; transition: transform 0.2s; }
+  .mobile-services-toggle[aria-expanded="true"] span { transform: rotate(180deg); }
+  .mobile-services-menu { display: none; margin-top: 1rem; }
+  .mobile-services-menu.open { display: grid; gap: 0.75rem; }
+  .mobile-menu .mobile-services-menu a { font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 400; }
+  @media (prefers-reduced-motion: reduce) { .services-dropdown-menu a, .mobile-services-toggle span { transition: none; } }
   .mobile-menu .mobile-cta {
     margin-top: 1rem;
     border: 1px solid var(--brass);
@@ -973,11 +988,11 @@
     <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 4L18 24" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round"/><path d="M18 8L28 18L18 24L8 18L18 8Z" stroke="#c9a96e" stroke-width="1.5" stroke-linejoin="round" fill="rgba(201,169,110,0.1)"/><path d="M4 27C8 24 12 26 18 26C24 26 28 24 32 27" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round"/><path d="M4 31C8 28.5 12 30 18 30C24 30 28 28.5 32 31" stroke="rgba(201,169,110,0.4)" stroke-width="1" stroke-linecap="round"/></svg>
     <span class="nav-logo-text">SMJ <span>Marine</span></span>
   </a>
-  <ul class="nav-links"><li><a href="/#ydelser">Ydelser</a></li><li><a href="/#om-os">Om os</a></li><li><a href="#proces">Proces</a></li><li><a href="#kontakt">Kontakt</a></li></ul>
+  <ul class="nav-links"><li><a href="/">Forside</a></li><li class="services-dropdown"><button class="services-toggle" type="button" aria-expanded="false">Ydelser</button><ul class="services-dropdown-menu"><li><a href="/baadklargoering.html">Bådklargøring</a></li><li><a href="/motorservice.html">Motorservice</a></li><li><a href="/polering-bundmaling.html">Polering &amp; Bundmaling</a></li><li><a href="/svejse-metalopgaver.html">Svejse &amp; Metalopgaver</a></li></ul></li><li><a href="/#om-os">Om os</a></li><li><a href="#proces">Proces</a></li><li><a href="#kontakt">Kontakt</a></li></ul>
   <button class="nav-cta" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">Få et tilbud</button>
   <button class="hamburger" id="hamburger" aria-label="Åbn menu"><span></span><span></span><span></span></button>
 </nav>
-<div class="mobile-menu" id="mobileMenu"><button class="mobile-menu-close" id="menuClose" aria-label="Luk menu">×</button><a href="/#ydelser">Ydelser</a><a href="/#om-os">Om os</a><a href="#proces">Proces</a><a href="#kontakt">Kontakt</a></div>
+<div class="mobile-menu" id="mobileMenu"><button class="mobile-menu-close" id="menuClose" aria-label="Luk menu">×</button><a href="/">Forside</a><div class="mobile-services"><button class="mobile-services-toggle" type="button" aria-expanded="false" aria-controls="mobileServicesMenu">Ydelser <span aria-hidden="true">⌄</span></button><div class="mobile-services-menu" id="mobileServicesMenu"><a href="/baadklargoering.html">Bådklargøring</a><a href="/motorservice.html">Motorservice</a><a href="/polering-bundmaling.html">Polering &amp; Bundmaling</a><a href="/svejse-metalopgaver.html">Svejse &amp; Metalopgaver</a></div></div><a href="/#om-os">Om os</a><a href="#proces">Proces</a><a href="#kontakt">Kontakt</a></div>
 <main>
 <section class="hero">
   <div class="hero-bg"></div><div class="hero-rule"></div>
@@ -1009,6 +1024,6 @@
 <section class="cta-section" id="kontakt"><div class="section-label">Kontakt</div><h2>Klar til tryg bådklargøring?</h2><p>Send bådtype, havn og om du ønsker forårsklargøring, vinterklargøring eller teknisk eftersyn. Så vender vi tilbage med næste skridt.</p><a href="/#kontakt" class="btn-primary">Book tid / Få tilbud</a></section>
 </main>
 <footer><div class="footer-copy">© 2026 SMJ Marine — Tlf: +45 50 65 49 00 | CVR: 38469509</div><div class="footer-links"><a href="/cookiepolitik.html">Cookiepolitik</a><a href="/gdpr.html">GDPR</a><a href="/privatlivspolitik.html">Privatlivspolitik</a></div><div class="footer-domain">SMJ-Marine.dk</div></footer>
-<script>const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobileMenu');const menuClose=document.getElementById('menuClose');function closeMenu(){mobileMenu.classList.remove('open');hamburger.classList.remove('open');document.body.style.overflow=''}hamburger?.addEventListener('click',()=>{mobileMenu.classList.add('open');hamburger.classList.add('open');document.body.style.overflow='hidden'});menuClose?.addEventListener('click',closeMenu);mobileMenu?.querySelectorAll('a').forEach((link)=>link.addEventListener('click',closeMenu));</script>
+<script>const hamburger=document.getElementById('hamburger');const mobileMenu=document.getElementById('mobileMenu');const menuClose=document.getElementById('menuClose');const servicesDropdown=document.querySelector('.services-dropdown');const servicesToggle=document.querySelector('.services-toggle');const mobileServicesToggle=document.querySelector('.mobile-services-toggle');const mobileServicesMenu=document.getElementById('mobileServicesMenu');function closeMenu(){mobileMenu.classList.remove('open');hamburger.classList.remove('open');document.body.style.overflow='';mobileServicesMenu?.classList.remove('open');mobileServicesToggle?.setAttribute('aria-expanded','false')}hamburger?.addEventListener('click',()=>{mobileMenu.classList.add('open');hamburger.classList.add('open');document.body.style.overflow='hidden'});menuClose?.addEventListener('click',closeMenu);mobileMenu?.querySelectorAll('a').forEach((link)=>link.addEventListener('click',closeMenu));servicesToggle?.addEventListener('click',(event)=>{event.stopPropagation();const isOpen=servicesDropdown.classList.toggle('open');servicesToggle.setAttribute('aria-expanded',String(isOpen))});document.addEventListener('click',()=>{servicesDropdown?.classList.remove('open');servicesToggle?.setAttribute('aria-expanded','false')});document.addEventListener('keydown',(event)=>{if(event.key==='Escape'){servicesDropdown?.classList.remove('open');servicesToggle?.setAttribute('aria-expanded','false')}});mobileServicesToggle?.addEventListener('click',()=>{const isOpen=mobileServicesMenu.classList.toggle('open');mobileServicesToggle.setAttribute('aria-expanded',String(isOpen))});</script>
 </body>
 </html>
