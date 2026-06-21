@@ -234,6 +234,16 @@
   }
   .nav-links a:hover { color: var(--brass); }
   .services-dropdown { position: relative; }
+  .services-dropdown::after {
+    content: '';
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: -4px;
+    left: 0;
+    height: 4px;
+  }
+  .services-dropdown:hover::after, .services-dropdown.open::after { display: block; }
   .services-toggle {
     border: 0;
     background: none;
@@ -248,7 +258,7 @@
   .services-dropdown-menu {
     display: none;
     position: absolute;
-    top: calc(100% + 1rem);
+    top: calc(100% + 4px);
     left: 50%;
     min-width: 250px;
     padding: 0.6rem;

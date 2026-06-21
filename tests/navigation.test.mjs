@@ -40,3 +40,19 @@ test('marketing pages expose the services dropdown and mobile accordion', async 
     }
   }
 });
+
+test('desktop services dropdown has a continuous four-pixel hover path', async () => {
+  for (const page of marketingPages) {
+    const html = await readFile(path.join(root, page), 'utf8');
+
+    assert.match(html, /\.services-dropdown::after\s*\{[^}]*bottom:\s*-4px[^}]*height:\s*4px/s, page);
+    assert.match(html, /\.services-dropdown-menu\s*\{[^}]*top:\s*calc\(100% \+ 4px\)/s, page);
+  }
+});
+
+test('polishing page presents Renskib as the agreed product supplier', async () => {
+  const html = await readFile(path.join(root, 'polering-bundmaling.html'), 'utf8');
+
+  assert.match(html, /Renskibs produkter/);
+  assert.doesNotMatch(html, /Hempel|Jotun/);
+});

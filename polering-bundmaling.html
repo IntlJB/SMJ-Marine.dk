@@ -97,7 +97,7 @@
       "name": "Polering og bundmaling",
       "serviceType": "Bådpolering, gelcoat renovering, højglanspolering, vandlinjeoprensning, teakrens og bundmaling af båd",
       "url": "https://smj-marine.dk/polering-bundmaling.html",
-      "description": "Kosmetisk pleje og strukturel skrogbeskyttelse med rubbing, polering, oxideret gelcoat behandling, fjernelse af gul vandlinje, slibning af bund inden bundmaling og kvalitetsprodukter som Hempel og Jotun.",
+      "description": "Kosmetisk pleje og strukturel skrogbeskyttelse med rubbing, polering, oxideret gelcoat behandling, fjernelse af gul vandlinje, slibning af bund inden bundmaling og Renskibs produkter eller andet efter aftale.",
       "provider": {
         "@id": "https://smj-marine.dk/#business"
       },
@@ -131,10 +131,10 @@
         },
         {
           "@type": "Question",
-          "name": "Bruger I Hempel eller Jotun?",
+          "name": "Bruger I Renskibs produkter?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Vi kan bruge kvalitetsbrands som Hempel og Jotun, når de passer til bådens eksisterende behandling, ønsket resultat og forholdene i dansk farvand."
+            "text": "Vi bruger Renskibs produkter eller andet efter aftale, når det passer til bådens eksisterende behandling, ønsket resultat og forholdene i dansk farvand."
           }
         },
         {
@@ -253,9 +253,11 @@
   }
   .nav-links a:hover { color: var(--brass); }
   .services-dropdown { position: relative; }
+  .services-dropdown::after { content: ''; display: none; position: absolute; right: 0; bottom: -4px; left: 0; height: 4px; }
+  .services-dropdown:hover::after, .services-dropdown.open::after { display: block; }
   .services-toggle { border: 0; background: none; color: var(--text2); font: inherit; font-size: 0.875rem; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; }
   .services-toggle:hover, .services-dropdown.open .services-toggle { color: var(--brass); }
-  .services-dropdown-menu { display: none; position: absolute; top: calc(100% + 1rem); left: 50%; min-width: 250px; padding: 0.6rem; margin: 0; transform: translateX(-50%); list-style: none; background: rgba(11,26,44,0.98); border: 1px solid rgba(201,169,110,0.3); box-shadow: 0 18px 45px rgba(0,0,0,0.3); }
+  .services-dropdown-menu { display: none; position: absolute; top: calc(100% + 4px); left: 50%; min-width: 250px; padding: 0.6rem; margin: 0; transform: translateX(-50%); list-style: none; background: rgba(11,26,44,0.98); border: 1px solid rgba(201,169,110,0.3); box-shadow: 0 18px 45px rgba(0,0,0,0.3); }
   .services-dropdown:hover .services-dropdown-menu, .services-dropdown.open .services-dropdown-menu { display: block; }
   .services-dropdown-menu a { display: block; padding: 0.75rem 0.9rem; text-transform: none; }
   .services-dropdown-menu a:hover { background: rgba(201,169,110,0.1); transform: translateX(4px); }
@@ -990,24 +992,24 @@
 <section class="hero">
   <div class="hero-bg"></div><div class="hero-rule"></div>
   <div class="hero-content"><div class="hero-eyebrow">Bådpolering og bundmaling på Sjælland</div><h1>Bådpolering<br><em>og bundbeskyttelse.</em></h1><p class="hero-sub">Vi hjælper med bådpolering, gelcoat renovering, mat gelcoat, højglanspolering båd, rubbing og polering af båd, fjernelse af gul vandlinje, teakrens, oliering af teakdæk båd og bundmaling af båd til dansk farvand på Sjælland.</p><div class="hero-actions"><a href="#kontakt" class="btn-primary">Book tid / Få tilbud</a><a href="#proces" class="btn-ghost">Se hvordan det foregår</a></div></div>
-  <div class="hero-stats"><div><div class="hero-stat-num">03</div><div class="hero-stat-label">Serviceområde</div><div class="hero-stat-divider"></div></div><div><div class="hero-stat-num">Hempel</div><div class="hero-stat-label">Jotun og kvalitet</div><div class="hero-stat-divider"></div></div><div><div class="hero-stat-num">24t</div><div class="hero-stat-label">Typisk svar</div></div></div>
+  <div class="hero-stats"><div><div class="hero-stat-num">03</div><div class="hero-stat-label">Serviceområde</div><div class="hero-stat-divider"></div></div><div><div class="hero-stat-num">Renskib</div><div class="hero-stat-label">Produkter efter aftale</div><div class="hero-stat-divider"></div></div><div><div class="hero-stat-num">24t</div><div class="hero-stat-label">Typisk svar</div></div></div>
   <div class="hero-waves"><div class="wave-1"><svg viewBox="0 0 1440 180" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path fill="#1a3a5c" fill-opacity="0.35" d="M0,90 C120,140 240,40 360,90 C480,140 600,40 720,90 C840,140 960,40 1080,90 C1200,140 1320,40 1440,90 C1560,140 1680,40 1800,90 C1920,140 2040,40 2160,90 C2280,140 2400,40 2520,90 C2640,140 2760,40 2880,90 L2880,180 L0,180 Z"/></svg></div><div class="wave-2"><svg viewBox="0 0 1440 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path fill="#0b1a2c" fill-opacity="0.85" d="M0,70 C180,10 360,130 540,70 C720,10 900,130 1080,70 C1260,10 1440,130 1620,70 C1800,10 1980,130 2160,70 C2340,10 2520,130 2700,70 C2880,10 2880,70 2880,70 L2880,140 L0,140 Z"/></svg></div></div>
 </section>
 <section class="services" id="ydelser"><div class="services-header"><div><div class="section-label">Det hjælper vi med</div><h2>Glans over vandlinjen, beskyttelse under vandet</h2></div><p class="services-intro">Polering og bundmaling skal både bevare bådens udseende og beskytte skroget mod dansk farvand. Vi skelner tydeligt mellem kosmetisk pleje over vandlinjen og den beskyttelse, bunden kræver under sæsonen.</p></div><div class="services-grid"><div class="service-card"><div class="service-num">01</div><h3 class="service-title">Bådpolering og gelcoat renovering</h3><p class="service-desc">Mat gelcoat, oxideret gelcoat behandling og rubbing og polering af båd kræver en anden tilgang end en hurtig voks. Vi vurderer overfladen og tilpasser arbejdet, så båden får mere glans og en lettere overflade at holde ren.</p><ul class="service-list"><li>Bådpolering</li><li>Gelcoat renovering</li><li>Mat gelcoat</li><li>Højglanspolering båd</li></ul></div>
 <div class="service-card"><div class="service-num">02</div><h3 class="service-title">Vandlinjeoprensning</h3><p class="service-desc">Fjernelse af gul vandlinje kan ændre hele bådens udtryk. Misfarvning ved vandlinjen skyldes ofte kalk, snavs, alger eller aflejringer, og vi renser med fokus på effekt uden unødig belastning af gelcoat.</p><ul class="service-list"><li>Fjernelse af gul vandlinje</li><li>Vandlinjeoprensning</li><li>Oxideret gelcoat behandling</li><li>Klargøring før polering</li></ul></div>
 <div class="service-card"><div class="service-num">03</div><h3 class="service-title">Bundmaling af båd</h3><p class="service-desc">Bundmaling af glasfiberbåd beskytter mod begroning og gør sæsonen lettere. Forarbejdet er afgørende: slibning af bund inden bundmaling, korrekt rengøring og valg af produkt efter båd og farvand.</p><ul class="service-list"><li>Bundmaling af båd</li><li>Bundmaling pris afhænger af bundens stand</li><li>Slibning af bund inden bundmaling</li><li>Hvilken bundmaling til dansk farvand</li></ul></div>
-<div class="service-card"><div class="service-num">04</div><h3 class="service-title">Teak og kvalitetsprodukter</h3><p class="service-desc">Teakrens og oliering af teakdæk båd kræver skånsom behandling. Til bund og skrog rådgiver vi om kvalitetsbrands som Hempel og Jotun, når de passer til eksisterende behandling og dansk farvand.</p><ul class="service-list"><li>Teakrens</li><li>Oliering af teakdæk båd</li><li>Hempel/Jotun efter behov</li><li>Rådgivning om produktvalg</li></ul></div></div></section>
+<div class="service-card"><div class="service-num">04</div><h3 class="service-title">Teak og kvalitetsprodukter</h3><p class="service-desc">Teakrens og oliering af teakdæk båd kræver skånsom behandling. Til bund og skrog rådgiver vi om Renskibs produkter eller andet efter aftale, når det passer til eksisterende behandling og dansk farvand.</p><ul class="service-list"><li>Teakrens</li><li>Oliering af teakdæk båd</li><li>Renskibs produkter efter aftale</li><li>Rådgivning om produktvalg</li></ul></div></div></section>
 <section class="price"><div class="section-label">Pris og gennemsigtighed</div><h2>Hvad påvirker bundmaling pris og polering?</h2><p class="price-note">Prisen afhænger af bådens længde, gelcoatens stand, hvor oxideret overfladen er, om vandlinjen skal renses, og hvor meget forarbejde bunden kræver. Vi aftaler ambitionsniveau og materialer først, så du ved, om opgaven er en let opfriskning eller en dybere renovering.</p><div class="price-grid"><div class="price-card"><h3>Længde og fribord</h3><p>Størrelse påvirker både tid, adgang og materialeforbrug.</p></div>
 <div class="price-card"><h3>Gelcoatens stand</h3><p>Mat eller oxideret gelcoat kræver mere arbejde end en let højglanspolering.</p></div>
 <div class="price-card"><h3>Bundens forarbejde</h3><p>Slibning, rengøring og gammel bundmaling påvirker prisen.</p></div>
-<div class="price-card"><h3>Materialevalg</h3><p>Hempel, Jotun og andre produkter vælges efter båd, farvand og eksisterende behandling.</p></div></div></section>
+<div class="price-card"><h3>Materialevalg</h3><p>Renskibs produkter eller andet efter aftale vælges efter båd, farvand og eksisterende behandling.</p></div></div></section>
 <section class="process" id="proces"><div class="process-header"><div class="section-label">Sådan foregår det</div><h2>Sådan foregår polering og bundmaling</h2><p>Først vurderer vi overfladen, derefter vælger vi metode og produkter, og til sidst kvalitetstjekker vi finish og vedhæftning.</p></div><div class="process-steps"><div class="process-step"><div class="process-step-num">1</div><div class="process-step-title">Besigtigelse</div><div class="process-step-desc">Vi vurderer gelcoat, vandlinje, bund, teak og adgangsforhold.</div></div>
 <div class="process-step"><div class="process-step-num">2</div><div class="process-step-title">Metode og pris</div><div class="process-step-desc">Vi aftaler omfang: polering, rubbing, vandlinjeoprensning, teakrens eller bundmaling.</div></div>
 <div class="process-step"><div class="process-step-num">3</div><div class="process-step-title">Forarbejde og udførsel</div><div class="process-step-desc">Vi renser, sliber, polerer eller maler efter den aftalte løsning.</div></div>
 <div class="process-step"><div class="process-step-num">4</div><div class="process-step-title">Finish og råd</div><div class="process-step-desc">Vi gennemgår resultatet og giver råd til vedligehold gennem sæsonen.</div></div></div></section>
 <section class="faq" id="faq"><div class="section-label">Trygheds-FAQ</div><h2>Ofte stillede spørgsmål</h2><div class="faq-grid"><div class="faq-item"><h3>Hvilken bundmaling passer til dansk farvand?</h3><p>Det afhænger af bådtype, sejlmønster, eksisterende bundmaling og lokal begroning. Vi rådgiver ud fra den konkrete båd.</p></div>
 <div class="faq-item"><h3>Kan mat gelcoat blive blank igen?</h3><p>Ofte kan mat gelcoat forbedres markant med rubbing, polering og gelcoat renovering. Resultatet afhænger af, hvor dybt oxideringen går.</p></div>
-<div class="faq-item"><h3>Bruger I Hempel eller Jotun?</h3><p>Vi kan bruge kvalitetsbrands som Hempel og Jotun, når de passer til bådens eksisterende behandling, ønsket resultat og forholdene i dansk farvand.</p></div>
+<div class="faq-item"><h3>Bruger I Renskibs produkter?</h3><p>Vi bruger Renskibs produkter eller andet efter aftale, når det passer til bådens eksisterende behandling, ønsket resultat og forholdene i dansk farvand.</p></div>
 <div class="faq-item"><h3>Kan vejret påvirke arbejdet?</h3><p>Ja. Temperatur, fugt, regn og vind kan påvirke polering, hærdning og bundmaling. Vi planlægger efter forholdene.</p></div>
 <div class="faq-item"><h3>Kører I ud til havne?</h3><p>Ja. Vi kan udføre polering, vandlinjeoprensning og bundmaling på havnen, når adgangsforhold, strøm, vand, plads og vejr tillader det.</p></div>
 <div class="faq-item"><h3>Er båden forsikret under arbejdet?</h3><p>Din egen bådforsikring dækker normalt båden som aktiv, men vilkår varierer. Tjek din dækning ved servicearbejde og behandling på båden.</p></div></div></section>
