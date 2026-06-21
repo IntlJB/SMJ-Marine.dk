@@ -1,4 +1,4 @@
-# Dropdown Hover Gap Design
+# Dropdown Hover Gap and Polishing Copy Design
 
 ## Problem
 
@@ -12,6 +12,12 @@ En afstand på 0 px blev fravalgt, fordi menuen visuelt ville støde direkte op 
 
 Mobilmenuen og dropdownens eksisterende klik-, Escape- og outside-click-adfærd ændres ikke.
 
+## Poleringstekst
+
+Alle omtaler af Hempel og Jotun på siden “Polering & bundmaling” erstattes konsekvent med Renskib. Den primære formulering bliver “Renskibs produkter – eller andet efter aftale”. Det danske ejefald skrives uden apostrof.
+
+Heroens leverandørfelt, servicekortet, materialeteksten, FAQ-svaret og sidens strukturerede metadata opdateres, så synlig tekst og søgemaskinedata ikke modsiger hinanden. Teksten skal fortsat gøre produktvalget afhængigt af båd, eksisterende behandling og den konkrete aftale.
+
 ## Verification
 
-Navigationstesten skal kontrollere både den reducerede afstand og hover-broen på alle fem marketingsider. Hele testsuiten køres efter ændringen, og dropdownen kontrolleres i en browser på desktopbredde.
+Navigationstesten skal kontrollere både den reducerede afstand og hover-broen på alle fem marketingsider. En integrationstest skal kontrollere, at Renskib-formuleringen findes, og at Hempel/Jotun ikke længere omtales på poleringssiden. Hele testsuiten køres efter ændringen, og dropdownen kontrolleres i en browser på desktopbredde.
